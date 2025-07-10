@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rishav Kumar Thapa | Cybersecurity Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0f1f;
+      --primary: #00ffae;
+      --secondary: #9d00ff;
+      --glass: rgba(255, 255, 255, 0.05);
+      --blur: blur(8px);
+      --font: 'Fira Code', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .matrix-background {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://media.giphy.com/media/IwSG1QKOwDjQk/giphy.gif') repeat center center/cover;
+      opacity: 0.06;
+      z-index: -10;
+    }
+
+    header.hero {
+      text-align: center;
+      padding: 6rem 1rem;
+      background: linear-gradient(180deg, #0a0f1f 60%, transparent);
+    }
+
+    .name {
+      font-size: 3rem;
+      color: var(--primary);
+      text-shadow: 0 0 20px var(--primary);
+    }
+
+    .tagline {
+      font-size: 1.4rem;
+      margin-top: 1rem;
+      color: var(--secondary);
+      text-shadow: 0 0 10px var(--secondary);
+    }
+
+    .subtext {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .cta-buttons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn.neon {
+      background: transparent;
+      border: 2px solid var(--primary);
+      padding: 0.75rem 1.5rem;
+      color: var(--primary);
+      text-decoration: none;
+      transition: 0.3s;
+      border-radius: 8px;
+      box-shadow: 0 0 15px var(--primary);
+    }
+
+    .btn.neon:hover {
+      background: var(--primary);
+      color: #0a0f1f;
+    }
+
+    section {
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--primary);
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+
+    .floating-logos {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .floating-logos img {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .floating-logos img:hover {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    .skills-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .skill-card {
+      background: var(--glass);
+      backdrop-filter: var(--blur);
+      border: 1px solid #222;
+      padding: 2rem;
+      border-radius: 15px;
+      width: 250px;
+      transition: transform 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .skill-card ul {
+      list-style: none;
+      text-align: left;
+    }
+
+    .skill-card1 {
+      background: var(--glass);
+      backdrop-filter: var(--blur);
+      border: 1px solid #222;
+      padding: 2rem;
+      border-radius: 15px;
+      width: 250px;
+      transition: transform 0.3s;
+    }
+
+    .skill-card1:hover {
+      transform: translateY(-10px);
+    }
+
+    .skill-card1 ul {
+      list-style: none;
+      text-align: center;
+    }
+
+    .projects .project-tiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .tile {
+      background: var(--glass);
+      backdrop-filter: var(--blur);
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #00ffae33;
+      transition: transform 0.4s ease;
+    }
+
+    .tile:hover {
+      transform: scale(1.05);
+    }
+
+    .cert-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .cert-category img {
+      width: 80px;
+      margin-top: 1rem;
+    }
+
+    .contact form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact input,
+    .contact textarea {
+      padding: 0.75rem;
+      border: none;
+      background: #111;
+      color: white;
+      border-radius: 10px;
+    }
+
+    .social-icons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .icon-button {
+      padding: 0.6rem 1.2rem;
+      border: 2px solid var(--secondary);
+      color: var(--secondary);
+      border-radius: 10px;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .icon-button:hover {
+      background: var(--secondary);
+      color: #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+      background: #00000055;
+    }
+
+    @media (max-width: 600px) {
+      .cta-buttons, .floating-logos, .skills-grid, .cert-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="matrix-background"></div>
+  <header class="hero">
+  <h1 class="name">Rishav Kumar Thapa</h1>
+  <p class="tagline">Defenders of the Grid | Keeping Every Byte Safe | Every Insight Secure</p>
+  <p class="subtext">Cybersecurity | Network Simulation | Python Tools | System Monitoring</p>
+  <div class="cta-buttons">
+    <a href="#projects" class="btn neon">View Projects</a>
+    <a href="https://drive.google.com/file/d/1WCMEs3j0I37N4T23jep4cwVwb-_e85p2/view?usp=sharing" class="btn neon" target="_blank">Download CV</a>
+    <a href="https://www.linkedin.com/in/rishav-kumar-thapa-88bba62b7/" class="btn neon" target="_blank">Connect on LinkedIn</a>
+  </div>
+</header>
+
+
+  <section class="about">
+    <h2>About Me</h2>
+    <p>Hi, I'm Rishav Kumar Thapa. I'm studying cybersecurity and  Networking enjoy working on Blue Team projects.
+I like learning how to protect networks, analyze threats, build  and make secure systems.</p>
+<div class="floating-logos">
+  <img src="1.jpg" alt="Cisco">
+  <img src="2.jpg" alt="Python">
+  <img src="3.jpg" alt="Kali Linux">
+  <img src="4.jpg" alt="Wireshark">
+  <img src="5.png" alt="AWS">
+  <img src="6.jpg" alt="LetsDefend">
+  <img src="8.jpg" alt="VirtualBox">
+</div>
+
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card1">
+        <h3>Technical Feild</h3>
+        <ul>
+          <li>Windows & Linux Admin</li>
+          <li>Packet Tracer, Wireshark, Metasploit</li>
+          <li>Python Scripting, Bash</li>
+          <li>Virtualization: VMware, VirtualBox</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Soft Skills</h3>
+        <ul>
+          <li>Problem Solving</li>
+          <li>Team Collaboration</li>
+          <li>Attention to Detail</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+    <h3>Languages</h3>
+        <ul  style="text-align: center;">
+          <li>   English</li>
+          <li>  Nepali</li>
+          <li>   Hindi</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+<section class="projects" id="projects">
+  <h2>Projects</h2>
+  <div class="project-tiles">
+    <div class="tile">
+      <h3><a href="https://github.com/RishavTh" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Mini SOC Lab setup with Wazuh</a></h3>
+      <p>setup a Real-time monitoring and alerting environment using Wazuh & Sysmon</p>
+    </div>
+    <div class="tile">
+      <h3><a href="https://github.com/RishavTh" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">pfSense DoS Mitigation</a></h3>
+      <p>Firewall configuration to detect and block DoS attacks</p>
+    </div>
+    <div class="tile">
+      <h3><a href="https://github.com/RishavTh" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Active Directory Deployment</a></h3>
+      <p>Windows Server-based AD DS with GPO and DNS</p>
+    </div>
+    <div class="tile">
+      <h3><a href="https://github.com/RishavTh" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Telnet Brute Force </a></h3>
+      <p>Telnet service attack  demonstration and Mitigation</p>
+    </div>
+    <div class="tile">
+      <h3><a href="https://github.com/RishavTh" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Python Honeypot</a></h3>
+      <p>Basic Python trap to log and identify malicious actors</p>
+    </div>
+    <div class="tile">
+      <h3><a href="https://github.com/RishavTh" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">System Health Bash Script</a></h3>
+      <p>Linux script to monitor and alert on system metrics</p>
+    </div>
+    <div class="tile">
+      <h3><a href="https://github.com/RishavTh" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Snort-IDS-Lab-Setup-on-Ubuntu</a></h3>
+      <p>Stetup and Detected logs</p>
+    </div>
+      <div class="tile">
+      <h3><a href="https://github.com/RishavTh" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Encryptor Tools (Pinnacle Labs)</a></h3>
+      <p>All-in-one GUI tool using AES, RSA, DES for encryption</p>
+    </div>
+  </div>
+</section>
+
+
+ <section class="certifications">
+  <h2>Certifications</h2>
+  <div class="cert-grid">
+    <div class="cert-category">
+      <h3>
+        <a href="https://www.credly.com/users/rishav-thapa.7dbab2a5/edit#credly" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
+          Cisco
+        </a>
+      </h3>
+      <img src="1.jpg" alt="Cisco Badge">
+    </div>
+    <div class="cert-category">
+      <h3>
+        <a href="https://www.credly.com/users/rishav-thapa.7dbab2a5/edit#credly" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
+          AWS Academy
+        </a>
+      </h3>
+      <img src="5.png" alt="AWS Cloud Badge">
+    </div>
+    <div class="cert-category">
+      <h3>
+        <a href="https://app.letsdefend.io/user/rishavkumarthapa" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
+          LetsDefend
+        </a>
+      </h3>
+      <img src="6.jpg" alt="LetsDefend Badge">
+    </div>
+    <div class="cert-category">
+      <h3>
+        <a href="https://www.theforage.com/profile/PYSjQCzwStpKZ6YDH" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
+          Forage
+        </a>
+      </h3>
+      <img src="7.png" alt="Forage Badge">
+    </div>
+  </div>
+</section>
+
+
+
+
+  <section class="contact">
+    <h2>Contact</h2>
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="1b0b2f11-1e88-49ee-ac81-6848d625957f">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn neon">Send Message</button>
+    </form>
+    <div class="social-icons">
+      <a href="https://github.com/RishavTh" class="icon-button">GitHub</a>
+      <a href="https://www.linkedin.com/in/rishav-kumar-thapa-88bba62b7/" class="icon-button">LinkedIn</a>
+      <a href="https://medium.com/@rishavkumarthapa" class="icon-button">Medium</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Rishav Kumar Thapa. All rights reserved. | Design by RKT</p>
+  </footer>
+</body>
+</html>
